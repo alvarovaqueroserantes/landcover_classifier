@@ -1,0 +1,8 @@
+torch
+torchvision
+albumentations
+tensorboard
+scikit-learn
+matplotlib
+seaborn
+pyyaml
