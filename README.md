@@ -1,81 +1,76 @@
-# 🛰️ Land Cover Classification with PyTorch
+# 🚀 Land Cover Classification with PyTorch
 
-Este proyecto utiliza deep learning para clasificar imágenes satelitales del dataset **EuroSAT** en diferentes tipos de cobertura terrestre como bosques, cultivos, agua, etc.
+This project uses deep learning to classify satellite images from the **EuroSAT** dataset into different land cover types such as forest, crops, water, etc.
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
-landcover_classifier/
-├── configs/ # Configuración YAML
-├── models/ # Arquitectura CNN (ResNet)
-├── utils/ # Carga de datos, métricas, helpers
-├── train.py # Entrenamiento por época
-├── test.py # Evaluación final y matriz de confusión
-├── main.py # Script principal
-├── requirements.txt # Dependencias
-└── README.md # Esta guía
-
-yaml
-Copiar
-Editar
+landcover\_classifier/
+├── configs/             # YAML configuration
+├── models/              # CNN architecture (ResNet)
+├── utils/               # Data loading, metrics, helpers
+├── train.py             # Epoch-wise training
+├── test.py              # Final evaluation and confusion matrix
+├── main.py              # Main script
+├── requirements.txt     # Dependencies
+└── README.md            # This guide
 
 ---
 
 ## 📦 Dataset: EuroSAT
 
-- Fuente: [EuroSAT on Kaggle](https://www.kaggle.com/datasets/apollo2506/eurosat-dataset)
-- Estructura esperada:
+* Source: [EuroSAT on Kaggle](https://www.kaggle.com/datasets/apollo2506/eurosat-dataset)
+* Expected structure:
 
+```
 data/
 └── EuroSAT/
-├── AnnualCrop/
-├── Forest/
-├── River/
-├── ... (10 clases)
+    ├── AnnualCrop/
+    ├── Forest/
+    ├── River/
+    ├── ... (10 classes)
+```
 
-css
-Copiar
-Editar
+When running `main.py`, the dataset will be automatically split into:
 
-Al ejecutar `main.py`, el dataset se dividirá automáticamente en:
-
+```
 data/
 ├── train/
 └── test/
-
-yaml
-Copiar
-Editar
+```
 
 ---
 
-## ⚙️ Instalación
+## ⚙️ Installation
 
-1. Clona este repositorio:
+1. Clone this repository:
 
 ```bash
 git clone https://github.com/tu_usuario/landcover_classifier.git
 cd landcover_classifier
-Crea y activa un entorno virtual:
+```
 
-bash
-Copiar
-Editar
+2. Create and activate a virtual environment:
+
+```bash
 python -m venv venv
-.\venv\Scripts\activate     # En Windows
-Instala las dependencias:
+.\venv\Scripts\activate     # On Windows
+```
 
-bash
-Copiar
-Editar
+3. Install dependencies:
+
+```bash
 pip install -r requirements.txt
-🛠️ Configuración
-Edita el archivo configs/config.yaml para cambiar hiperparámetros como el modelo, batch size, epochs, etc.
+```
 
-yaml
-Copiar
-Editar
+---
+
+## 🛠️ Configuration
+
+Edit the file `configs/config.yaml` to change hyperparameters like the model, batch size, epochs, etc.
+
+```yaml
 model_name: resnet18
 batch_size: 64
 epochs: 20
@@ -84,56 +79,55 @@ num_classes: 10
 input_size: 224
 checkpoint_path: checkpoints/landcover_model.pth
 use_gpu: true
-🚀 Entrenamiento
-Una vez tengas el dataset descargado:
+```
 
-bash
-Copiar
-Editar
+---
+
+## 🚀 Training
+
+Once the dataset is downloaded:
+
+```bash
 python main.py
-Esto:
+```
 
-Divide el dataset en entrenamiento y validación
+This will:
 
-Entrena el modelo
+* Split the dataset into training and validation
+* Train the model
+* Save checkpoints
+* Log metrics to TensorBoard
 
-Guarda checkpoints
+---
 
-Registra métricas en TensorBoard
+## 📊 Visualization
 
-📊 Visualización
-bash
-Copiar
-Editar
+```bash
 tensorboard --logdir runs/
-Abre tu navegador en http://localhost:6006
+```
 
-✅ Resultado Final
-Accuracy y F1 por época
+Open your browser at [http://localhost:6006](http://localhost:6006)
 
-Matriz de confusión
+---
 
-Modelo entrenado en checkpoints/
+## ✅ Final Results
 
-Listo para usar en APIs, dashboards o investigación
+* Accuracy and F1 score per epoch
+* Confusion matrix
+* Trained model in `checkpoints/`
+* Ready to use in APIs, dashboards, or research
 
-🧠 Clases del Dataset
-AnnualCrop
+---
 
-Forest
+## 🧠 Dataset Classes
 
-HerbaceousVegetation
-
-Highway
-
-Industrial
-
-Pasture
-
-PermanentCrop
-
-Residential
-
-River
-
-SeaLake
+* AnnualCrop
+* Forest
+* HerbaceousVegetation
+* Highway
+* Industrial
+* Pasture
+* PermanentCrop
+* Residential
+* River
+* SeaLake
